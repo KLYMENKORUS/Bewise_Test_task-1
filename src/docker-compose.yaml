@@ -1,0 +1,21 @@
+version: "3.0"
+services:
+  db:
+    container_name: "task_1"
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - dbdata:/var/lib/postgresql/data/
+    ports:
+      - "5434:5432"
+    networks:
+      - custom
+networks:
+  custom:
+    driver: bridge
+volumes:
+  dbdata:
