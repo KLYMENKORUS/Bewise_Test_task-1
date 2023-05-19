@@ -2,7 +2,8 @@ from fastapi import FastAPI, APIRouter
 from api.handlers import router
 
 
-app = FastAPI()
+app = FastAPI(title='Task #1',
+              description='Test tasks for bewise.ai')
 
 # create the instance for the routes
 main_api_router = APIRouter()
